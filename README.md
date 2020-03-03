@@ -1,4 +1,31 @@
 # load_file_scripts
 
-Batch load files for projects
+Batch load multiple RDS project file
 
+The [load_rds.R](https://github.com/davemargraf/load_file_scripts/blob/master/load_rds.R) script will load all the RDS files saved in a `/rds` subdirectory of an *R* project to the project environment.
+
+
+First, it stores the project working directory.
+```{r}
+wd <- getwd()
+```
+
+Then, appends `/rds` subdirectory name. 
+```{r}
+filedir <- paste0(wd,"/rds")
+```
+
+Next, create a list of file names.
+```{r}
+files <- list.files(filedir)
+```
+
+The code below will move to the `/rds` subdirectory, apply the `readRDS()` function to file list, then return to project working directory.
+
+```{r}
+setwd(filedir)
+lapply(files, readRDS)
+setwd(wd)
+```
+
+<!-- Alternatively, we can read the rds files from the project directory with this method -->
