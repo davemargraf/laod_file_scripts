@@ -1,6 +1,6 @@
 # load_file_scripts
 
-Batch load multiple RDS project file
+Batch load multiple RDS project files.
 
 The [load_rds.R](https://github.com/davemargraf/load_file_scripts/blob/master/load_rds.R) script will load all the RDS files saved in a `/rds` subdirectory of an *R* project to the project environment.
 
